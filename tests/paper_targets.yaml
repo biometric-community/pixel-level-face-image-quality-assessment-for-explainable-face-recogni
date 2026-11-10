@@ -1,0 +1,11 @@
+# Terhoerst, Huber, Damer, Kirchbuchner, Raja & Kuijper, "Pixel-Level Face Image Quality
+# Assessment for Explainable Face Recognition", IEEE TBIOM 5(2), 2023,
+# doi:10.1109/TBIOM.2023.3263186, arXiv:2110.11001.
+source: arXiv:2110.11001
+
+# Sec. 3.1: SER-FIQ with m = 100 stochastic passes at dropout rate 0.5.
+stochastic_passes: 100
+dropout: 0.5
+
+# The method explains a working recogniser; LFW accuracy of 90% is a loose floor.
+clean_lfw_accuracy_floor: 90.0
