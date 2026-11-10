@@ -41,7 +41,8 @@ def test_pixel_maps_are_not_rescaled_per_image():
     model's gradients tenfold, which a comparable map has to show."""
     torch.manual_seed(1)
     x = torch.rand(1, 3, 8, 8)
-    _, maps = pixel_quality_map(ToyFR().eval(), torch.cat([x, 10 * x]))
+    # gamma only stretches the display range (Sec. 4.2); this toy needs a smaller one
+    _, maps = pixel_quality_map(ToyFR().eval(), torch.cat([x, 10 * x]), gamma=2.0)
     peaks = maps.flatten(1).max(dim=1).values
     assert peaks[0] > peaks[1] + 0.01
 
